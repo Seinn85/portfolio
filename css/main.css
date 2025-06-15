@@ -1,0 +1,302 @@
+/* Modern Portfolio CSS - Glassmorphism, Gradients, Vibrant UI */
+
+:root {
+  --accent: #e94560;
+  --accent2: #0f3460;
+  --bg-glass: rgba(26, 29, 44, 0.65);
+  --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --card-gradient: linear-gradient(135deg, rgba(233,69,96,0.10) 0%, rgba(15,52,96,0.10) 100%);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --glow: 0 0 16px 2px var(--accent);
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Orbitron', sans-serif;
+  background: var(--bg-gradient);
+  color: #f4f4f4;
+  min-height: 100vh;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* NavBar */
+nav {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10,10,10,0.7) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+/* Portfolio Title (セイン ポートフォリオ) */
+.portfolio-title {
+  font-size: 1.15rem !important;
+  letter-spacing: 0.18em;
+  padding: 0.1em 0.2em;
+  line-height: 1.1;
+}
+@media (min-width: 768px) {
+  .portfolio-title {
+    font-size: 1.45rem !important;
+  }
+}
+nav .nav-link {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+nav .nav-link:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent2), 0 0 2px #fff;
+}
+
+/* Hero Section */
+.hero-content h1, .hero-content h2 {
+  text-shadow: 0 2px 24px rgba(233,69,96,0.18);
+}
+.text-glow {
+  color: var(--accent);
+  text-shadow: 0 0 16px var(--accent2), 0 0 2px #fff;
+}
+.profile-image-container {
+  filter: drop-shadow(0 0 24px var(--accent2));
+}
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite alternate;
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 var(--accent2); }
+  100% { box-shadow: 0 0 32px 8px var(--accent); }
+}
+
+/* Glassmorphism Cards */
+.space-card, .project-card, .timeline-content {
+  background: var(--card-gradient);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+.space-card:hover, .project-card:hover, .timeline-content:hover {
+  box-shadow: 0 0 32px 6px var(--accent2);
+  border: 1.5px solid var(--accent);
+}
+
+/* Timeline */
+.timeline {
+  border-left: 3px solid var(--accent2);
+  margin-left: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.timeline-marker {
+  position: absolute;
+  left: -2.1rem;
+  top: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px 2px var(--accent2);
+  border: 2px solid #fff;
+}
+.timeline-marker.current {
+  background: var(--accent2);
+  box-shadow: 0 0 20px 8px var(--accent);
+}
+
+/* Section Headings */
+section#home {
+  padding-top: 7rem; /* Ensure hero content is visible below nav; adjust value as needed for nav height */
+}
+section h2 {
+  font-family: 'Orbitron', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+/* Skill Bars */
+.skill-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+.skill-progress {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  box-shadow: 0 0 12px 1px var(--accent2);
+  transition: width 0.8s cubic-bezier(.4,2,.6,1);
+}
+
+/* Buttons */
+.cosmic-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.8em 2.2em;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff;
+  box-shadow: 0 2px 24px 0 var(--accent2);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.cosmic-btn.primary:hover {
+  background: linear-gradient(90deg, var(--accent2) 0%, var(--accent) 100%);
+  box-shadow: 0 0 32px 4px var(--accent);
+  transform: translateY(-2px) scale(1.04);
+}
+.cosmic-btn.secondary {
+  background: linear-gradient(90deg, var(--accent2) 0%, var(--accent) 100%);
+  color: #fff;
+  border: 2px solid var(--accent);
+}
+.cosmic-btn.secondary:hover {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  box-shadow: 0 0 32px 4px var(--accent2);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Social Links */
+.social-link {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.social-link:hover {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent2);
+}
+
+/* Forms */
+.form-input {
+  width: 100%;
+  padding: 0.75em 1em;
+  border-radius: 0.75em;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.16);
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 0.2em;
+  margin-bottom: 0.7em;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 8px 1px var(--accent2);
+  background: rgba(255,255,255,0.12);
+}
+
+/* Section backgrounds */
+section {
+  margin-bottom: 3rem;
+}
+section:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+  background: rgba(10,10,10,0.65);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 -4px 24px 0 rgba(0,0,0,0.08);
+  margin-top: 2rem;
+}
+footer p {
+  margin: 0.2em 0;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .grid.md\:grid-cols-2, .grid.md\:grid-cols-2, .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .timeline {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .space-card, .project-card, .timeline-content {
+    padding: 1.2rem 0.7rem;
+  }
+  .profile-image-container {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Background Animation Placeholders */
+.space-bg, .stars-layer, .floating-planets {
+  pointer-events: none;
+}
+.space-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 60% 40%, #1a1a2e 0%, #0a0a0a 100%);
+  z-index: 0;
+}
+.stars-layer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 1;
+}
+.floating-planets {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 2;
+}
+
+/* Misc */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent2);
+  border-radius: 4px;
+}
+
+/* Utility classes */
+.text-star-glow {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent2), 0 0 2px #fff;
+}
+.bg-star-glow {
+  background: var(--accent);
+  color: #fff;
+}
+.bg-planet-blue {
+  background: var(--accent2);
+  color: #fff;
+}

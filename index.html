@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セイン レイ レイ トウン　| フルスタック開発者ポートフォリオ</title>
+    <meta name="description" content="日本での就職を目指すフルスタック開発者のポートフォリオ。Python等の技術経験4年以上">
+    <meta name="keywords" content="フルスタック開発者,Python,Java,VBA,ミャンマー,日本就職,リモートワーク">
+    
+    <!-- EmailJS ライブラリの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Japanese -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'noto': ['Noto Sans JP', 'sans-serif'],
+                        'orbitron': ['Orbitron', 'monospace']
+                    },
+                    colors: {
+                        'space-dark': '#0a0a0a',
+                        'space-blue': '#1a1a2e',
+                        'cosmic-purple': '#16213e',
+                        'star-glow': '#e94560',
+                        'planet-blue': '#0f3460'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-noto bg-space-dark text-white overflow-x-hidden">
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0">
+        <div class="space-bg"></div>
+        <div class="stars-layer"></div>
+        <div class="floating-planets"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-30 backdrop-blur-sm border-b border-white border-opacity-10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="portfolio-title font-orbitron font-extrabold bg-gradient-to-r from-star-glow via-planet-blue to-pink-400 bg-clip-text text-transparent drop-shadow-glow tracking-widest uppercase">
+                セイン ポートフォリオ
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-star-glow transition-colors duration-300">ホーム</a>
+                    <a href="#top" class="nav-link hover:text-star-glow transition-colors duration-300">プロフィール</a>
+                    <a href="#career" class="nav-link hover:text-star-glow transition-colors duration-300">経歴</a>
+                    <a href="#skills-section" class="nav-link hover:text-star-glow transition-colors duration-300">スキル</a>
+                    <a href="#projects-section" class="nav-link hover:text-star-glow transition-colors duration-300">プロジェクト</a>
+                    <a href="#contact-section" class="nav-link hover:text-star-glow transition-colors duration-300">連絡先</a>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 z-40 bg-black bg-opacity-95 backdrop-blur-sm hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#home" class="mobile-nav-link">ホーム</a>
+            <a href="#top" class="mobile-nav-link">プロフィール</a>
+            <a href="#career" class="mobile-nav-link">経歴</a>
+            <a href="#skills-section" class="mobile-nav-link">スキル</a>
+            <a href="#projects-section" class="mobile-nav-link">プロジェクト</a>
+            <a href="#contact-section" class="mobile-nav-link">連絡先</a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="hero-content">
+                <div class="profile-image-container mb-8">
+                    <div class="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-star-glow to-planet-blue p-1 animate-pulse-glow">
+                        <div class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
+                            <img id="profile-photo" src="attached_assets/Profile.jpg" alt="プロフィール画像" class="w-full h-full rounded-full object-cover object-center">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-orbitron font-bold mb-4 text-glow">
+                    セイン レイ レイ トウン
+                </h1>
+                <h2 class="text-2xl md:text-3xl mb-6 text-blue-300">
+                    フルスタック開発者
+                </h2>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-300">
+                    4年以上の開発経験を持ち、Python, VBA を中心としたフルスタック開発を専門とします。<br>
+                    日本でのリモートワークを目指し、継続的な技術向上に取り組んでいます。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#top" class="cosmic-btn primary">
+                        <i class="fas fa-rocket mr-2"></i>
+                        プロフィールを見る
+                    </a>
+                    <a href="#contact-section" class="cosmic-btn secondary">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        お問い合わせ
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-star-glow"></i>
+            </div>
+        </div>
+    </section>
+    <div id="top"></div>
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                    プロフィール
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto"></div>
+            </div>
+            <!-- Basic Info Section (Full-width, visually distinctive) -->
+            <div id="selfintro" class="w-full mb-12">
+                <div class="bg-black bg-opacity-50 border border-star-glow rounded-2xl shadow-lg px-8 py-8 flex flex-col items-center">
+                    <h3 class="text-3xl font-bold text-star-glow mb-4 tracking-wider">基本情報</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-star-glow to-planet-blue mb-6"></div>
+                    <div class="flex flex-wrap justify-center gap-8 w-full">
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-user text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>名前</strong></span>
+                            <span class="text-lg font-semibold text-white">セイン レイ レイ トウン</span>
+                        </div>
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-birthday-cake text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>年齢</strong></span>
+                            <span class="text-lg font-semibold text-white">30歳</span>
+                        </div>
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-map-marker-alt text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>居住地</strong></span>
+                            <span class="text-lg font-semibold text-white">ヤンゴン、ミャンマー</span>
+                        </div>
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-certificate text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>学歴</strong></span>
+                            <span class="text-lg font-semibold text-white">IT分野の修士課程修了</span>
+                        </div>
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-certificate text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>資格</strong></span>
+                            <span class="text-lg font-semibold text-white">Nat-TEST N3合格（2024年10月）</span>
+                        </div>
+                        <div class="flex flex-col items-center min-w-[120px]">
+                            <i class="fas fa-briefcase text-3xl text-star-glow mb-2"></i>
+                            <span class="text-base text-gray-200"><strong>経験年数</strong></span>
+                            <span class="text-lg font-semibold text-white">4年以上</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Self Introduction Section (Full-width, visually distinctive) -->
+            <div class="w-full mb-12">
+                <div class="bg-black bg-opacity-50 border border-star-glow rounded-2xl shadow-lg px-8 py-8 flex flex-col items-center">
+                    <h3 class="text-3xl font-bold text-star-glow mb-4 tracking-wider">自己紹介</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-star-glow to-planet-blue mb-6"></div>
+                    <div class="space-y-4 text-left text-base md:text-lg leading-relaxed text-gray-200 w-full max-w-4xl">
+                        <p>私は<strong>2012年</strong>にウェストヤンゴン工科大学に入学し、情報技術を専攻しました。<strong>2017年</strong>に工学士の学位を取得しました。その後、ヤンゴン工科大学でコンピューター工学と情報技術を専攻し、<strong>2020年</strong>に工学修士の学位を取得しました。</p>
+                        <p>大学在学中の<strong>2018年</strong>には、インド・ミャンマーITスキル向上センター（IMCEITS）でJavaプログラミングのプロフェッショナル・ディプロマを取得しました。</p>
+                        <p><strong>2019年12月</strong>に、日系企業の大和総研（DIR）とミャンマーのACEデータシステムズ（ACE）の合弁会社であるDIR-ACEテクノロジー株式会社（DAT）で、オン・ザ・ジョブ・トレーニング（OJT）を開始しました。<strong>2020年3月</strong>にジュニアプログラマーとして正式に採用され、<strong>2021年4月</strong>にシニアプログラマー、<strong>2022年4月</strong>にソフトウェアエンジニア、<strong>2023年4月</strong>にシニアソフトウェアエンジニアへ昇進しました。</p>
+                        <p>現在は日本の会社でリモート勤務を目指しており、JavaのSpring Bootをはじめ技術力の向上に努めています。また、チーム内のコミュニケーションを大切にし、責任感が強く、質の高い仕事を提供することを心がけています。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 自己紹介 (Self Introduction) -->
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="career" id="experience" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                    職歴・経験
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline">
+                    <!-- Timeline Item: IMCEITS 2018年 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content bg-opacity-90">
+                            <span class="timeline-date text-base font-semibold text-star-glow">2018年5月～2018年11月</span>
+                            <div class="mb-2 flex flex-wrap items-center gap-2">
+                                <span class="bg-planet-blue text-white rounded px-2 py-1 text-xs font-bold"><i class="fas fa-user-graduate mr-1"></i>学生</span>
+                                <span class="bg-gray-700 text-white rounded px-2 py-1 text-xs font-semibold"><i class="fas fa-building mr-1"></i>IMCEITS</span>
+                            </div>
+                            <div class="mb-1 text-lg font-bold text-star-glow"><i class="fas fa-project-diagram mr-1"></i>ミャンマー国内向けの人口動態統計オンライン登録システム</div>
+                            <ul class="mb-2 text-gray-200 text-sm md:text-base list-disc pl-5 space-y-1">
+                                <li><strong>プロジェクト名:</strong> ミャンマー国内向けの人口動態統計オンライン登録システム</li>
+                                <li><strong>言語:</strong> J2EE Struts 2・Microsoft SQLを使用したウォーターフォール開発</li>
+                                <li><strong>担当業務:</strong> コードとデザインの開発、プロジェクトプレゼンター</li>
+                                <li><strong>経験:</strong> 基礎的な開発スキルを身につけ、プロジェクトコンテストで作品の品質と創造性が評価され、<span class="text-yellow-400 font-bold"><i class="fas fa-award mr-1"></i>2位受賞</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Timeline Item 2: DAT 実習 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content bg-opacity-90">
+                            <span class="timeline-date text-base font-semibold text-star-glow">2019年12月～2020年3月</span>
+                            <div class="mb-2 flex flex-wrap items-center gap-2">
+                                <span class="bg-planet-blue text-white rounded px-2 py-1 text-xs font-bold"><i class="fas fa-user-cog mr-1"></i>実習</span>
+                                <span class="bg-gray-700 text-white rounded px-2 py-1 text-xs font-semibold"><i class="fas fa-building mr-1"></i>DAT</span>
+                            </div>
+                            <div class="mb-1 text-lg font-bold text-star-glow"><i class="fas fa-project-diagram mr-1"></i>DAT社内向けの出席依頼管理システム</div>
+                            <ul class="mb-2 text-gray-200 text-sm md:text-base list-disc pl-5 space-y-1">
+                                <li><strong>プロジェクト名:</strong> DAT社内向けの出席依頼管理システム</li>
+                                <li><strong>言語:</strong> SpringBoot・Mybatisを使用したウォーターフォール開発</li>
+                                <li><strong>担当業務:</strong> デザイン作成(基本設計文書、詳細設計書)、コーディング、テスト、UTケースの作成・テスト実行、プロジェクトプレゼンター</li>
+                                <li><strong>経験:</strong> 技術力と対人力を身につけ、チームでの協力やビジネスマナーを守って業務を遂行</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Timeline Item 3: DAT エンジニア -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content bg-opacity-90">
+                            <span class="timeline-date text-base font-semibold text-star-glow">2020年3月～2024年5月</span>
+                            <div class="mb-2 flex flex-wrap items-center gap-2">
+                                <span class="bg-planet-blue text-white rounded px-2 py-1 text-xs font-bold"><i class="fas fa-user-tie mr-1"></i>ジュニアプログラマー~シニアソフトウェアエンジニア</span>
+                                <span class="bg-gray-700 text-white rounded px-2 py-1 text-xs font-semibold"><i class="fas fa-building mr-1"></i>DAT</span>
+                            </div>
+                            <div class="mb-1 text-lg font-bold text-star-glow"><i class="fas fa-project-diagram mr-1"></i>DIRのセキュリティシステムの開発と保守</div>
+                            <ul class="mb-2 text-gray-200 text-sm md:text-base list-disc pl-5 space-y-1">
+                                <li><strong>プロジェクト名:</strong> DIRのセキュリティシステムの開発と保守</li>
+                                <li><strong>言語:</strong> Python・Microsoft Accessを使用したウォーターフォール開発</li>
+                                <li><strong>担当業務:</strong> デザイン作成(基本設計文書、詳細設計書)、コーディング、テスト、ツール作成、ログラムフロー作成、UT/ITケースの作成・テスト実行、本番環境への移行、保守運用</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Timeline Item 4: 2024年6月～現在 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker current"></div>
+                        <div class="timeline-content bg-opacity-90">
+                            <span class="timeline-date text-base font-semibold text-star-glow">2024年6月～現在</span>
+                            <div class="mb-2 flex flex-wrap items-center gap-2">
+                                <span class="bg-planet-blue text-white rounded px-2 py-1 text-xs font-bold"><i class="fas fa-briefcase mr-1"></i>転職活動中</span>
+                            </div>
+                            <ul class="mb-2 text-gray-200 text-sm md:text-base list-disc pl-5 space-y-1">
+                                <li>日本でのリモートワーク・永住権取得を目標とした転職活動を開始。</li>
+                                <li>現在、JavaのSpring Boot、AI、日本語を学習中。新しい技術を探求し、スキル向上に努めています。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills-section" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                    技術スキル
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Backend Skills -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-server text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">バックエンド</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Python</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Java</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>VBA</span>
+                                <span class="text-blue-300">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Frontend Skills -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">フロントエンド</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Node.js</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>JavaScript</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>HTML/CSS</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Database Skills -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-database text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">データベース</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>MySQL</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Microsoft SQL</span>
+                                <span class="text-star-glow">中級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Microsoft Access</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cloud & DevOps Skills -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-cloud text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">クラウド・DevOps</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>Docker</span>
+                                <span class="text-star-glow">中級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testing & Analytics -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-chart-line text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">テスト・分析</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>ユニットテスト</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>結合テスト</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Language Skills -->
+                <div class="space-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-language text-4xl text-star-glow mb-3"></i>
+                        <h3 class="text-xl font-bold">言語スキル</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>日本語</span>
+                                <span class="text-star-glow">中級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>英語</span>
+                                <span class="text-star-glow">上級</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-1">
+                                <span>ミャンマー語</span>
+                                <span class="text-star-glow">母国語</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects-section" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                    主要プロジェクト
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="space-card project-card">
+                    <div class="project-header">
+                        <i class="fas fa-server text-3xl text-star-glow mb-4" title="Migration/System"></i>
+                        <h3 class="text-xl font-bold mb-2">プロジェクト：マイグレーションシステム</h3>
+                        <p class="text-blue-300 mb-4">Python + VBA | ウォーターフォール開発</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="text-gray-300 mb-4">
+                            旧本番サーバーから新本番サーバーへのセキュリティシステムの移行を担当
+                        </p>
+                        <div class="project-tech mb-4">
+                            <h4 class="font-semibold mb-2">使用技術:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">VBA</span>
+                                <span class="tech-tag">MicrosoftAccess</span>
+                            </div>
+                        </div>
+                        <div class="project-achievements">
+                            <h4 class="font-semibold mb-2">主な成果:</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 本番環境でのテスト実行を通じて、品質の高いリリースを実現</li>
+                                <li>• サーバーマイグレーションの実施</li>
+                                セキュリティレベルの向上が可能</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="space-card project-card">
+                    <div class="project-header">
+                        <i class="fas fa-robot text-3xl text-star-glow mb-4" title="Automation"></i>
+                        <h3 class="text-xl font-bold mb-2">手動作業から自動化システムへ</h3>
+                        <p class="text-blue-300 mb-4">Python｜ウォーターフォール開発</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="text-gray-300 mb-4">
+                            日次モニタリング業務を手動操作からツールベースの自動化システムに変換しました。バックエンド開発者としてメインで参加し、以下の業務を担当
+                        </p>
+                        <div class="project-tech mb-4">
+                            <h4 class="font-semibold mb-2">使用技術:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Excelの数式</span>
+                                <span class="tech-tag">Bash</span>
+                            </div>
+                        </div>
+                        <div class="project-achievements">
+                            <h4 class="font-semibold mb-2">主な成果:</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 手動作業をツール化し、業務の正確性と効率を向上</li>
+                                <li>• 実運用での安定稼働を実現し、現場からの問い合わせを大幅に削減</li>
+                                <li>• 自動化ツールを設計・保守し、他部署でも利用可能な仕様に拡張</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact-section" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                    お問い合わせ
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    日本でのリモートワーク・永住権を目指しています。<br>
+                    お気軽にご連絡ください。
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-card">
+                        <h3 class="text-2xl font-bold mb-6 text-star-glow">連絡先情報</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-star-glow rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">メール</h4>
+                                    <p class="text-gray-200">seinnleileitun2017@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-star-glow rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">所在地</h4>
+                                    <p class="text-gray-200">ヤンゴン、ミャンマー</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-star-glow rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-briefcase text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">希望勤務形態</h4>
+                                    <p class="text-gray-200">リモートワーク</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">SNS・リンク</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Seinn85" class="social-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-card">
+                        <h3 class="text-2xl font-bold mb-6">メッセージを送る</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">お名前</label>
+                                <input type="text" name="user_name" class="form-input" placeholder="お名前を入力してください" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">メールアドレス</label>
+                                <input type="email" name="user_email" class="form-input" placeholder="メールアドレスを入力してください" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">件名</label>
+                                <input type="text" name="subject" class="form-input" placeholder="件名を入力してください" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">メッセージ</label>
+                                <textarea name="message" rows="5" class="form-input" placeholder="メッセージを入力してください" required></textarea>
+                            </div>
+                            <button type="submit" class="cosmic-btn primary w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>送信する
+                            </button>
+                            <div id="result" class="success"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white border-opacity-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <p class="text-gray-400">
+                    &copy; 2025 セイン レイ レイ トウン. All rights reserved.
+                </p>
+            </div>
+            <div class="text-sm text-gray-500">
+                <p>フルスタック開発者 | Webアプリケーション | リモートワーク</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <!-- EmailJS スクリプト -->
+
+</body>
+</html>
