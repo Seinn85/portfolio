@@ -287,6 +287,22 @@ footer p {
   border-radius: 4px;
 }
 
+/* Animation for awards photo gallery */
+.awards-photo-card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: awardFadeIn 1s forwards;
+}
+.awards-photo-card[style*="animation-delay"] {
+  /* This allows the inline style delay to work */
+}
+@keyframes awardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Utility classes */
 .text-star-glow {
   color: var(--accent);

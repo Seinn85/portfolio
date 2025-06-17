@@ -1,5 +1,51 @@
 // main.js
 
+// Awards Section Carousel
+function initAwardsCarousel() {
+    const slides = document.getElementById('awardsSlides');
+    const images = slides ? slides.querySelectorAll('.carousel-img') : [];
+    const prev = document.getElementById('awardsPrev');
+    const next = document.getElementById('awardsNext');
+    const dots = document.querySelectorAll('#awardsDots .carousel-dot');
+    let current = 0;
+    let interval;
+    const total = images.length;
+
+    function updateCarousel(index) {
+        if (!slides) return;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-star-glow', i === index);
+            dot.classList.toggle('bg-gray-400', i !== index);
+        });
+        current = index;
+    }
+    function goToNext() {
+        updateCarousel((current + 1) % total);
+    }
+    function goToPrev() {
+        updateCarousel((current - 1 + total) % total);
+    }
+    function startAutoSlide() {
+        interval = setInterval(goToNext, 3500);
+    }
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+    if (next) next.addEventListener('click', () => { stopAutoSlide(); goToNext(); startAutoSlide(); });
+    if (prev) prev.addEventListener('click', () => { stopAutoSlide(); goToPrev(); startAutoSlide(); });
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { stopAutoSlide(); updateCarousel(i); startAutoSlide(); });
+    });
+    updateCarousel(0);
+    startAutoSlide();
+    slides.addEventListener('mouseenter', stopAutoSlide);
+    slides.addEventListener('mouseleave', startAutoSlide);
+}
+document.addEventListener('DOMContentLoaded', function () {
+    initAwardsCarousel();
+});
+
 // Example: Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function () {
     const menuButton = document.getElementById('mobile-menu-button');

@@ -188,6 +188,33 @@
             </div>
         </div>
     </section>
+    <!-- Achievement & Awards Section -->
+    <section id="awards-section" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">実績・受賞歴</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-star-glow to-planet-blue mx-auto"></div>
+                <p>チームと共に多くの実績を達成することができました。</p>
+                <p>これらの成果は、強いチームワークとたゆまぬ努力の結果です。</p>
+            </div>
+            <div class="awards-carousel relative mx-auto max-w-xl">
+                <div class="carousel-track overflow-hidden rounded-xl shadow-lg">
+                    <div class="carousel-slides flex transition-transform duration-700" id="awardsSlides">
+                        <img src="attached_assets/Memo/GpPhoto1.jpg" alt="Award Photo 1" class="carousel-img w-full h-64 object-cover flex-shrink-0" />
+                        <img src="attached_assets/Memo/GpPhoto2.jpg" alt="Award Photo 2" class="carousel-img w-full h-64 object-cover flex-shrink-0" />
+                        <img src="attached_assets/Memo/GpPhoto3.jpg" alt="Award Photo 3" class="carousel-img w-full h-64 object-cover flex-shrink-0" />
+                    </div>
+                </div>
+                <button class="carousel-arrow left-2 absolute top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center z-10" id="awardsPrev" aria-label="前へ"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-arrow right-2 absolute top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center z-10" id="awardsNext" aria-label="次へ"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots flex justify-center mt-4 gap-2" id="awardsDots">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-400" data-index="0"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-400" data-index="1"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-gray-400" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Experience Section -->
     <section id="career" id="experience" class="py-20 relative">
         <div class="container mx-auto px-6">
